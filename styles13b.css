@@ -1,0 +1,374 @@
+/* Animation Definitions */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #f0f4ff, #e6e9ff, #f0f4ff, #e6e9ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    margin: 0;
+    padding: 40px 0;
+    color: #2b2d42;
+    min-height: 100vh;
+}
+
+[class*="-btn"], .badge, .skill-card::before {
+    background: linear-gradient(to right, #4361ee, #3a0ca3);
+}
+
+[class*="-btn"] {
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+[class*="-btn"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+}
+
+[class*="-btn"]::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 0.3) 48%,
+        rgba(255, 255, 255, 0) 52%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+}
+
+.career-skills {
+    max-width: 1400px;
+    margin: 0 auto 60px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(67, 97, 238, 0.1);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.career-skills h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(to right, #4361ee, #3a0ca3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.career-skills h2::after, .skill-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(to right, #4361ee, #3a0ca3);
+    transition: all 0.3s ease;
+}
+
+.career-skills h2::after {
+    bottom: -10px;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.career-skills h2:hover::after {
+    transform: scaleX(1);
+}
+
+.trial-btn {
+    padding: 16px 32px;
+    font-size: 18px;
+    margin: 0 auto 30px;
+    display: block;
+    animation: pulse 2s infinite;
+}
+
+.trial-btn:hover {
+    animation: none;
+}
+
+.trial-btn::after {
+    animation: shine 3s infinite linear;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 80px;
+    margin: 40px;
+}
+
+.skill-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    animation: fadeIn 0.6s ease-out;
+    animation-fill-mode: both;
+    cursor: pointer;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+}
+
+.skill-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-content {
+    padding: 20px;
+    position: relative;
+}
+
+.company-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.company-logo img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.company {
+    font-size: 14px;
+    color: #4361ee;
+    font-weight: 600;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.skill-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #1a1a2e;
+    line-height: 1.4;
+    position: relative;
+    display: inline-block;
+}
+
+.skill-card h3::after {
+    width: 0;
+}
+
+.skill-card:hover h3::after {
+    width: 100%;
+}
+
+.level {
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.degree-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #f72585;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.degree-link::after {
+    content: '→';
+    position: absolute;
+    right: -15px;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(67, 97, 238, 0.15);
+}
+
+.skill-card:hover img {
+    transform: scale(1.1);
+}
+
+.skill-card:hover .company {
+    color: #f72585;
+}
+
+.degree-link:hover {
+    color: #3a0ca3;
+    transform: translateX(5px);
+}
+
+.degree-link:hover::after {
+    opacity: 1;
+    right: -20px;
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 1;
+    animation: float 3s ease-in-out infinite;
+}
+
+.search-container {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    border-radius: 30px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.floating-chat {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 5px 20px rgba(67, 97, 238, 0.4);
+    cursor: pointer;
+    z-index: 100;
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease;
+}
+
+.floating-chat:hover {
+    transform: scale(1.1) translateY(-5px);
+    animation: none;
+}
+
+.skill-card {
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@media (max-width: 768px) {
+    .career-skills {
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+    
+    .career-skills h2 {
+        font-size: 28px;
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+        margin: 20px;
+        gap: 40px;
+    }
+    
+    .trial-btn {
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+    
+    .floating-chat {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

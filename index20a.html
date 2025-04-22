@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Fundamentals Specialization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e6f0ff 100%);
+            color: #161616;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #0f62fe, #8a3ffc);
+            padding: 15px 5%;
+            box-shadow: 0 4px 12px rgba(15, 98, 254, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .coursera-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar .coursera-logo::before {
+            content: "✦";
+            font-size: 24px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .auth-buttons .login {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 8px 22px;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .auth-buttons .login:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        main {
+            padding: 20px 5%;
+        }
+
+        .course-container {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(15, 98, 254, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .course-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, #0f62fe, #8a3ffc, #ff7eb6);
+        }
+
+        .google-logo {
+            width: 140px;
+            display: block;
+            margin: 0 auto 20px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .course-container h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: transparent;
+            background: linear-gradient(to right, #0f62fe, #8a3ffc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .course-container p {
+            font-size: 18px;
+            color: #393939;
+            margin-bottom: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .instructor {
+            font-size: 17px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .instructor a {
+            color: #0f62fe;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .instructor a:hover {
+            text-decoration: underline;
+            color: #8a3ffc;
+        }
+
+        .top-instructor {
+            background: linear-gradient(to right, #0f62fe, #8a3ffc);
+            color: white;
+            padding: 5px 12px;
+            font-size: 12px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .top-instructor::before {
+            content: '★';
+        }
+
+        .enroll-btn {
+            background: linear-gradient(to right, #0f62fe, #8a3ffc);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 15px 0;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(15, 98, 254, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(15, 98, 254, 0.4);
+        }
+
+        .enroll-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 45%,
+                rgba(255, 255, 255, 0.3) 48%,
+                rgba(255, 255, 255, 0) 52%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+
+        .enroll-btn span {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .enrolled-count {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .included {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .coursera-plus {
+            color: #ff7eb6;
+            font-weight: 700;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px auto;
+            max-width: 1200px;
+            flex-wrap: wrap;
+        }
+
+        .info-box {
+            background-color: white;
+            padding: 17px;
+            border-radius: 12px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .info-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(15, 98, 254, 0.1);
+        }
+
+        .info-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            color: #0f62fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .info-box p {
+            font-size: 15px;
+            color: #393939;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .rating-stars {
+            color: #ffb800;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .emoji {
+            font-size: 20px;
+        }
+
+        .ai-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff7eb6, #ff65a3);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 8px rgba(255, 126, 182, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+            .course-container {
+                padding: 30px 20px;
+                margin: 20px auto;
+            }
+            
+            .course-container h1 {
+                font-size: 26px;
+            }
+            
+            .course-info {
+                gap: 15px;
+            }
+            
+            .info-box {
+                width: 100%;
+                max-width: 250px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h2 class="coursera-logo">Skill Sphere</h2>
+            <div class="auth-buttons">
+                <button class="login" onclick="window.location.href='7login.html'"><i class="fas fa-sign-in-alt"></i> Log In</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="course-container">
+            <div class="ai-badge">
+                <i class="fas fa-robot"></i> AI SPECIALIZATION
+            </div>
+            <img class="google-logo" src="ibm-logo.png" alt="IBM">
+            <h1>Generative AI Fundamentals Specialization</h1>
+            <p style="font-style:italic; color: #8a3ffc;">Unlock and leverage the potential of generative AI. 
+                Learn how you can use the capabilities of generative AI to enhance your work and daily life.</p>
+            <p class="instructor">Instructor: <a href="#"><i class="fas fa-chalkboard-teacher"></i> IBM Career Certificates</a> <span class="top-instructor">Top Instructor</span></p>
+            <button class="enroll-btn" onclick="window.location.href='7login.html'"><i class="fas fa-bolt"></i> Enroll <span>Starts Apr 26</span></button>
+            <p class="enrolled-count"><i class="fas fa-users"></i> 24,452 already enrolled</p>
+            <p class="included">Included with <span class="coursera-plus">SkillSphere PLUS</span> • <a href="#" style="color: #ff7eb6; font-weight:600;">Learn more</a></p>
+        </div>
+
+        <section>
+        <div class="course-info">
+            <div class="info-box">
+                <h3><i class="fas fa-microchip"></i> 5 course series</h3>
+                <p>Master generative AI through comprehensive learning</p>
+            </div>
+            <div class="info-box">
+                <h3><span class="rating-stars">★★★★★</span> 4.7 ★</h3>
+                <p>(1,253 reviews)</p>
+            </div>
+            <div class="info-box">
+                <h3><i class="fas fa-seedling"></i> Beginner level</h3>
+                <p>No prior experience needed</p>
+            </div>
+            <div class="info-box">
+                <h3><i class="far fa-calendar-alt"></i> Flexible schedule</h3>
+                <p>1 month, 5 hours/week<br>Learn at your own pace</p>
+            </div>
+            <div class="info-box">
+                <h3><span class="emoji">👍</span> 96% 👍</h3>
+                <p>Exceptional learner satisfaction</p>
+            </div>
+        </div>
+    </section>
+    </main>
+</body>
+</html>

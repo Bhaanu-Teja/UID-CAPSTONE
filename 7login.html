@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Skill Sphere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="login-styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="card-header">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1>Welcome Back</h1>
+                <p class="subtitle">Log in to continue learning with Skill Sphere</p>
+            </div>
+            
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="name@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                            <span class="password-toggle" onclick="togglePassword()">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">Log In</button>
+                    
+                    <div class="divider">or continue with</div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                        <button type="button" class="social-btn apple-btn">
+                            <i class="fab fa-apple"></i> Apple
+                        </button>
+                    </div>
+                    
+                    <p class="signup-link">New to Skill Sphere? <a href="#" onclick="window.location.href='6signUp.html';">Sign up</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.toLowerCase().trim();
+            const password = document.getElementById('password').value;
+            
+            // Get all users
+            const users = JSON.parse(localStorage.getItem('skillSphereUsers')) || [];
+            
+            // Find user (case insensitive)
+            const user = users.find(u => u.email.toLowerCase() === email);
+            
+            if (!user) {
+                alert('No account found with this email. Please sign up first.');
+                return false;
+            }
+            
+            if (user.password !== password) {
+                alert('Incorrect password. Please try again.');
+                return false;
+            }
+            
+            // Store current session
+            localStorage.setItem('skillSphereCurrentUser', JSON.stringify(user));
+            
+            // Redirect if everything is correct
+            window.location.href = 'idx23.html';
+            return false;
+        });
+
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            const eyeIcon = document.querySelector('.password-toggle i');
+            
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>

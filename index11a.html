@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Skills for Business Specialization | Skill Sphere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #2b2d42;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #4361ee, #3f37c9);
+            padding: 15px 5%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .coursera-logo {
+            font-size: 28px;
+            color: white;
+            font-weight: 800;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .auth-buttons .login {
+            border: 2px solid white;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: transparent;
+            color: white;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .auth-buttons .login:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            padding: 20px 5%;
+        }
+
+        .course-container {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #4361ee, #4895ef, #f72585);
+        }
+
+        .google-logo {
+            width: 140px;
+            display: block;
+            margin: 0 auto 15px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .course-container h1 {
+            font-size: 32px;
+            margin: 15px 0;
+            color: transparent;
+            background: linear-gradient(90deg, #4361ee, #7209b7);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .course-container p {
+            font-size: 18px;
+            color: #2b2d42;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .instructor {
+            font-size: 16px;
+            margin: 15px 0;
+        }
+
+        .instructor a {
+            color: #4361ee;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .top-instructor {
+            background: linear-gradient(135deg, #f72585, #7209b7);
+            color: white;
+            padding: 4px 10px;
+            font-size: 12px;
+            border-radius: 15px;
+            margin-left: 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .enroll-btn {
+            background: linear-gradient(135deg, #4361ee, #4895ef);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 20px 0;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+        }
+
+        .enroll-btn span {
+            font-size: 14px;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+
+        .enrolled-count {
+            font-size: 15px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .included {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .coursera-plus {
+            color: #7209b7;
+            font-weight: 600;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px auto;
+            max-width: 1200px;
+            flex-wrap: wrap;
+        }
+
+        .info-box {
+            background: white;
+            padding: 18px;
+            border-radius: 12px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            color: #4361ee;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .beginner-level {
+            background-color: #e3f2fd;
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: #4361ee;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .thumbs-up {
+            color: #4cc9f0;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .course-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .info-box {
+                width: 80%;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h2 class="coursera-logo">Skill Sphere</h2>
+            <div class="auth-buttons">
+                <button class="login" onclick="window.location.href='7login.html'">Log In</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="course-container">
+            <img class="google-logo" src="Macq.png" alt="Macquarie University">
+            <h1>Excel Skills for Business Specialization</h1>
+            <p style="font-style: italic; color: #7209b7;">Master Excel to add a highly valuable asset to your employability portfolio and unlock new career opportunities.</p>
+            <p class="instructor">Instructor: <a href="#">Macquarie Career Certificates</a> <span class="top-instructor"><i class="fas fa-star"></i> Top Instructor</span></p>
+            <button class="enroll-btn" onclick="window.location.href='7login.html'"><i class="fas fa-arrow-right"></i> Enroll Now <span>Starts Apr 27</span></button>
+            <p class="enrolled-count"><i class="fas fa-users"></i> 31,425 already enrolled</p>
+            <p class="included">Included with <span class="coursera-plus">SkillSphere PLUS</span> • <a href="#" style="color: #4895ef;">Learn more</a></p>
+        </div>
+
+        <section>
+            <div class="course-info">
+                <div class="info-box">
+                    <h3><i class="fas fa-book-open"></i> 12 Courses</h3>
+                    <p>Comprehensive learning series for in-depth knowledge</p>
+                </div>
+                <div class="info-box">
+                    <h3><span class="rating">★★★★★</span> 4.8</h3>
+                    <p>(26,985 reviews)</p>
+                </div>
+                <div class="info-box">
+                    <h3><span class="beginner-level"><i class="fas fa-signal"></i> Beginner</span></h3>
+                    <p>No prior experience needed</p>
+                </div>
+                <div class="info-box">
+                    <h3><i class="far fa-clock"></i> Flexible</h3>
+                    <p>3 months, 10 hrs/week<br>Learn at your own pace</p>
+                </div>
+                <div class="info-box">
+                    <h3><span class="thumbs-up"><i class="fas fa-thumbs-up"></i> 97%</span></h3>
+                    <p>Learner satisfaction rate</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

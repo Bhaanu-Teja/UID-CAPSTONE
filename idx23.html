@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform</title>
+    <link rel="stylesheet" href="styles23.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <h2>SkillSphere</h2>
+        </div>
+        <ul>
+            <li onclick="navigate('dashboard')" class="active"><i class="fas fa-home"></i> Dashboard</li>
+            <li onclick="navigate('announcements')"><i class="fas fa-bullhorn"></i> Announcements</li>
+            <li onclick="navigate('courses')"><i class="fas fa-book"></i> My Courses</li>
+            <li onclick="navigate('exams')"><i class="fas fa-pencil-alt"></i> Exams</li>
+            <li onclick="navigate('certificates')"><i class="fas fa-certificate"></i> Certificates</li>
+            <li onclick="navigate('profile')"><i class="fas fa-user"></i> Profile</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search for Courses, Subjects, Lessons...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <div class="user-info">
+                <a href="index17b.html" class="explore-courses" style="display: inline-block;padding: 10px 20px;background: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;border-radius: 8px;font-weight: bold;text-decoration: none;transition: transform 0.3s ease, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);"
+    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0, 123, 255, 0.5)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0, 123, 255, 0.4)'">
+    Explore Courses
+</a>
+                <i class="fas fa-user-circle" style="font-size: 35px;"></i>
+                <span class="user-name">Bhaanu Teja Reddy</span>
+            </div>
+        </div>
+        <div id="dashboard" class="page active" style="margin-top: 20px; display: flex; justify-content: space-between;">
+            <div class="continue-learning" style="flex: 2; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);">
+                <h3>Continue Learning</h3>
+                <div class="courses" style="display: flex; gap: 200px; margin-top: 10px;">
+                    <div class="course-card" style="background: #fff; border-radius: 10px; padding: 10px; width: 300px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="prof1.png" alt="Course" style="width: 100%; border-radius: 10px;">
+                        <h4>Self-Paced Web Development</h4>
+                        <p><i class="fas fa-calendar"></i> 01 Dec 24 - 31 Jul 25</p>
+                        <div class="progress-bar" style="background: #ddd; height: 5px; border-radius: 5px; margin: 5px 0;">
+                            <div class="progress" style="background: navy; height: 100%; border-radius: 5px; width: 25%;"></div>
+                        </div>
+                        <span>25%</span>
+                    </div>
+                    <div class="course-card" style="background: #fff; border-radius: 10px; padding: 10px; width: 300px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="prof2.png" alt="Course" style="width: 100%; border-radius: 10px;">
+                        <h4>Web Development: Foundations</h4>
+                        <p><i class="fas fa-calendar"></i> 24 Oct 24 - 31 Oct 24</p>
+                        <div class="progress-bar" style="background: #ddd; height: 5px; border-radius: 5px; margin: 5px 0;">
+                            <div class="progress" style="background: navy; height: 100%; border-radius: 5px; width: 50%;"></div>
+                        </div>
+                        <span>50%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="announcements" class="page">
+            <div class="main-content" style="margin-left:0px; width: 90%; padding: 0px;">
+                <header style="padding: 10px 0; font-size: 24px; font-weight: bold;">
+                    <h2>📢 Announcements</h2>
+                </header>
+                <section class="announcements" style="display: flex; flex-direction: column; gap: 20px;">
+                    
+                    <div class="announcement-card" style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                        <h3 style="font-size: 18px; margin-bottom: 10px;">📌 New Web Development Course Launched!</h3>
+                        <p class="date" style="font-size: 14px; color: #666; margin-bottom: 8px;">
+                            <i class="fas fa-calendar"></i> April 29, 2025
+                        </p>
+                        <p style="font-size: 16px;">We are excited to announce a new self-paced Web Development course. Enroll now and boost your skills!</p>
+                    </div>
+            
+                    <div class="announcement-card" style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                        <h3 style="font-size: 18px; margin-bottom: 10px;">🎓 Graduation Ceremony 2025</h3>
+                        <p class="date" style="font-size: 14px; color: #666; margin-bottom: 8px;">
+                            <i class="fas fa-calendar"></i> May 5, 2025
+                        </p>
+                        <p style="font-size: 16px;">The graduation ceremony for this year's batch will be held in the main auditorium. Join us to celebrate!</p>
+                    </div>
+            
+                    <div class="announcement-card" style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; cursor: pointer;"
+                        onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                        <h3 style="font-size: 18px; margin-bottom: 10px;">📢 Scheduled Maintenance</h3>
+                        <p class="date" style="font-size: 14px; color: #666; margin-bottom: 8px;">
+                            <i class="fas fa-calendar"></i> April 28, 2025
+                        </p>
+                        <p style="font-size: 16px;">Our platform will be under maintenance from 12:00 AM to 4:00 AM. Please save your work before then.</p>
+                    </div>
+            
+                </section>
+            </div>
+        </div>
+
+        <div id="courses" class="page">
+<div class="courses-header" style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px; font-size: 18px;">
+    <h2 style="cursor: pointer;">Active Courses (2) <i class="fas fa-chevron-down"></i></h2>
+    <div class="dropdown" style="display: none; position: absolute; background: white; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); border-radius: 5px; margin-top: 5px;">
+        <ul style="list-style: none; padding: 10px;">
+            <li style="padding: 8px; cursor: pointer;" onmouseover="this.style.background='#ddd'" onmouseout="this.style.background='transparent'">Active Courses</li>
+            <li style="padding: 8px; cursor: pointer;" onmouseover="this.style.background='#ddd'" onmouseout="this.style.background='transparent'">Completed Courses</li>
+        </ul>
+    </div>
+</div>
+
+<div class="courses" style="display: flex; gap: 150px; margin-top: 15px; flex-wrap: wrap;">
+    
+    <div class="course-card" style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); width: 320px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+        onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0px 4px 10px rgba(0, 0, 0, 0.2)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 2px 10px rgba(0, 0, 0, 0.1)';">
+        <img src="prof1.png" alt="Course Image" style="width: 100%; border-radius: 5px;">
+        <h3 style="font-size: 16px; margin-top: 10px;">Web Development: Foundation's</h3>
+        <p style="font-size: 14px; color: #666;"><i class="fas fa-calendar"></i> 24 Oct 24 - 31 Oct 24</p>
+        <div class="progress" style="background: #eee; height: 5px; border-radius: 5px; margin-top: 10px;">
+            <div class="progress-bar" style="background: blue; height: 100%; border-radius: 5px; width: 50%;"></div>
+        </div>
+    </div>
+
+    <div class="course-card" style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); width: 320px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;"
+        onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0px 4px 10px rgba(0, 0, 0, 0.2)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0px 2px 10px rgba(0, 0, 0, 0.1)';">
+        <img src="prof2.png" alt="Course Image" style="width: 100%; border-radius: 5px;">
+        <h3 style="font-size: 16px; margin-top: 10px;">Self-Paced Web Development December...</h3>
+        <p style="font-size: 14px; color: #666;"><i class="fas fa-calendar"></i> 01 Dec 24 - 31 Jul 25</p>
+        <div class="progress" style="background: #eee; height: 5px; border-radius: 5px; margin-top: 10px;">
+            <div class="progress-bar" style="background: blue; height: 100%; border-radius: 5px; width: 25%;"></div>
+        </div>
+    </div>
+</div>
+        </div>
+        <div id="exams" class="page">
+            <div class="exams-container" style="margin-top: 20px;">
+                <h1>My Exams</h1>
+                <div class="tabs" style="display: flex; gap: 20px; border-bottom: 2px solid #ddd; margin-bottom: 20px;">
+                    <span class="tab active" onclick="switchTab('upcoming')" 
+                          style="cursor: pointer; padding: 10px; font-weight: bold; border-bottom: 3px solid #333;">
+                          Upcoming Exams
+                    </span>
+                    <span class="tab" onclick="switchTab('past')" 
+                          style="cursor: pointer; padding: 10px; font-weight: bold;">
+                          Past Exams
+                    </span>
+                </div>
+                <div class="tab-content" id="upcoming" style="display: block;">
+                    <div class="no-exams" style="text-align: center; margin-top: 50px;">
+                        <img src="no-exams.png" alt="No Exams" style="width: 250px;">
+                        <p style="color: #777;">No Exams found!</p>
+                    </div>
+                </div>
+            
+                <div class="tab-content hidden" id="past" style="display: none;">
+                    <p>Past exams will appear here.</p>
+                </div>
+            </div>
+            
+            <script>
+                function switchTab(tab) {
+                    document.getElementById('upcoming').style.display = tab === 'upcoming' ? 'block' : 'none';
+                    document.getElementById('past').style.display = tab === 'past' ? 'block' : 'none';
+            
+                    let tabs = document.querySelectorAll('.tab');
+                    tabs.forEach(t => t.style.borderBottom = 'none');
+                    
+                    document.querySelector(tab[onclick="switchTab('${tab}')"]).style.borderBottom = '3px solid #333';
+                }
+            </script>
+        </div>
+        <div id="certificates" class="page">
+            <h1>My Certificates</h1>
+            <div class="certificate-card">
+                <img src="certificate_sample.png" alt="Certificate">
+                <a href="certificate_sample.png" download="My_Certificate.png">
+                    <button class="download-btn">Download</button>
+                </a>
+                <p>Python Development Certification</p>
+            </div>
+        </div>
+        <div id="profile" class="page">
+            <div class="profile-container" style="margin-bottom: 20px;">
+                <h1 style="margin-bottom: 20px;">My Profile</h1>
+                <div class="profile-content" style="display: flex; gap: 20px;">
+                    <div class="profile-card" style="width: 300px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <img src="profilepic.png" alt="Profile Picture" style="width: 100px; border-radius: 50%; margin-bottom: 10px;">
+                        <h2>Bhaanu Teja Reddy</h2>
+                        <p style="color: #555; margin: 5px 0;"> <i class="fas fa-hashtag"></i> 21867 </p><br><hr>
+                        <p style="color: #555; margin: 5px 0;"> <i class="fas fa-envelope"></i> bhaanutej999@gmail.com </p><br><hr>
+                        <p style="color: #555; margin: 5px 0;"> <i class="fas fa-calendar-alt"></i> DOB : 16 / 05 / 2006</p><br><hr>
+                        <p style="color: #555; margin: 5px 0;"> <i class="fas fa-phone"></i> +91 8790258289 </p><br><hr>
+                        <p style="color: #555; margin: 5px 0;"> <i class="fas fa-map-marker-alt"></i> 78/32-435, Boat Club Road, Chennai, Tamil Nadu 600028</p><br>
+                    </div>
+            
+                    <div class="profile-form" style="flex: 1; background: white; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="font-weight: bold; display: block;">Student Name <span>*</span></label>
+                            <input type="text" value="Bhaanu Teja Reddy" readonly style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+            
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="font-weight: bold; display: block;">Username <span>*</span></label>
+                            <input type="text" value="Bhaanu3737021" readonly style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+            
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="font-weight: bold; display: block;">Student Email <span>*</span></label>
+                            <input type="text" value="bhaanutej999@gmaill.com" readonly style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+            
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="font-weight: bold; display: block;">Student Mobile number <span>*</span></label>
+                            <input type="text" value="8790258289" readonly style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+            
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="font-weight: bold; display: block;">Date of Birth</label>
+                            <input type="text" value="16 / 05 / 2006" readonly style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+            
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label style="font-weight: bold; display: block;">Gender</label>
+                            <select id="genderSelect" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                                <option value="selected">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+                    let genderSelect = document.getElementById("genderSelect");
+            
+                    let savedGender = localStorage.getItem("selectedGender");
+                    if (savedGender) {
+                        genderSelect.value = savedGender;
+                    }
+            
+                    genderSelect.addEventListener("change", function () {
+                        localStorage.setItem("selectedGender", genderSelect.value);
+                    });
+                });
+
+        function navigate(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+                page.style.display = 'none';
+            });
+    
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+                activePage.style.display = 'block';
+            }
+    
+            const menuItems = document.querySelectorAll('.sidebar li');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                if (!page.classList.contains('active')) {
+                    page.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
